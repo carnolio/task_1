@@ -1,15 +1,22 @@
+from _ast import ExceptHandler
+
 currentOperand=0
 res=0
 isOperation=False
 currentOperator=''
 operations = {'+','-','/','*','**'}
-
-while curOperator !='=':
+try:
     currentOperand = float(input("Введите число:"))
+except Exception:
+    print('Введите числовое значение')
+while currentOperator !='=':
     currentOperator = input("Введите операцию:")
-    if currentOperator in operations:
+    if currentOperator in operations and currentOperator != '=':
         res = currentOperand
-        currentOperand = float(input("Введите число:"))
+        try:
+            currentOperand = float(input("Введите число:"))
+        except Exception:
+            print('Введите числовое значение')
         if currentOperator == '+':
             res=res+currentOperand
         elif currentOperator == '-':
@@ -23,6 +30,8 @@ while curOperator !='=':
                 print('На 0 делить нельзя')
             else:
                 res = res / currentOperand
-
+    elif currentOperator == '=':
+        break
     else:
         print("Введите операцию + - / * **")
+print(res)

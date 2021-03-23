@@ -1,11 +1,11 @@
-# для проверки корректности ввода по хорошему необходимо использовать try except, но мы данную конструкцию не проходили
-# тем не менее в логику сию проверку я добавлю.
-test = int(input())
+
 isPrime = True
-if type(test) is not int:
-    print ("Вы ввели не число")
+try:
+    test = int(input("Введите проверяемое число: "))
+except Exception:
+    print('Пожалуйста введите натуральное число')
 else:
-    for i in range(2,(test+1)//2,1):
+    for i in range(2,(test//2)+1,1):
         if test % i == 0:
             isPrime = False
     if isPrime:
