@@ -5,5 +5,8 @@ for letter in text:
         for key in vowelsCount.keys():
             if letter == key:
                 vowelsCount[letter] += 1
-
-print(vowelsCount)
+printVowels = ""
+for key in vowelsCount.keys():
+    printVowels= printVowels+key+" "+str(vowelsCount[key])+","
+printVowels=printVowels[0:len(printVowels)-1]
+print(printVowels)
